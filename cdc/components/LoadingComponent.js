@@ -1,34 +1,33 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
 class LoadingComponent extends Component {
 
+    componentWillMount() {
+        console.log("Component will mount");
+    }
+
     componentDidMount() {
-        console.log('componentDidMount');
+        console.log("Component did mount");
+        const {navigate} = this.props.navigation;
+        setTimeout(() => {
+            console.log("Will move to initial screen");
+            navigate('Initial')
+        }, 10000);
     }
-  
-    componentWillUnmount() {
-        console.log('componentWillUnmount');
-    }
-  
+
+    static navigationOptions = {
+      title: 'Loading',
+    };
     render() {
-
-        return (
-            <View style={styles.container}>
-                <Text>LoadingComponent</Text>
-            </View>
       
-        );
+      return (
+        <View style={{flex:1, justifyContent: 'center'}}>
+        <Text>Loading...</Text>
+        </View>
+
+      );
     }
-}
+  }
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
-
-export default LoadingComponent;
+  export default LoadingComponent;

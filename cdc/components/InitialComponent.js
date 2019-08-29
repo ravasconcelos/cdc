@@ -1,34 +1,24 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Button, View, Text } from 'react-native';
 
 class InitialComponent extends Component {
 
-    componentDidMount() {
-        console.log('componentDidMount');
-    }
-  
-    componentWillUnmount() {
-        console.log('componentWillUnmount');
-    }
-  
+    static navigationOptions = {
+      title: 'Initial',
+    };
     render() {
+      const {navigate} = this.props.navigation;
+      return (
+        <View style={{flex:1, justifyContent: 'center'}}>
+        <Text>Initial screen</Text>
 
-        return (
-            <View style={styles.container}>
-                <Text>InitialComponent</Text>
-            </View>
-      
-        );
+        <Button
+          title="Go to Game screen"
+          onPress={() => navigate('Game')}
+        />
+        </View>
+      );
     }
-}
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
-
-export default InitialComponent;
+  }
+  
+  export default InitialComponent;

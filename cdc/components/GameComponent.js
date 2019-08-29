@@ -1,34 +1,24 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Button, View, Text } from 'react-native';
 
 class GameComponent extends Component {
 
-    componentDidMount() {
-        console.log('componentDidMount');
-    }
-  
-    componentWillUnmount() {
-        console.log('componentWillUnmount');
-    }
-  
+    static navigationOptions = {
+      title: 'Game',
+    };
     render() {
-
-        return (
-            <View style={styles.container}>
-                <Text>GameComponent</Text>
-            </View>
-      
-        );
+      const {navigate} = this.props.navigation;
+      return (
+        <View style={{flex:1, justifyContent: 'center'}} >
+        <Text>Game screen</Text>
+        <Button
+          title="Go to Initial screen"
+          onPress={() => navigate('Initial')}
+        />
+        </View>
+      );
     }
-}
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
+  }
 
-export default GameComponent;
+  export default GameComponent;
