@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Image } from 'react-native';
 
 class LoadingComponent extends Component {
 
@@ -22,8 +22,13 @@ class LoadingComponent extends Component {
     render() {
       
       return (
-        <View style={{flex:1, justifyContent: 'center'}}>
-        <Text>Loading...</Text>
+        <View style={{flex:1, justifyContent:'space-around', margin:100}}>
+        <Text style={{fontSize: 40}}>Loading...</Text>
+        <Image
+          style={{flex:1, height: 200, width: 200}}
+          source={require('../assets/images/loading.png')}
+          resizeMode="contain"
+        />
         </View>
 
       );
